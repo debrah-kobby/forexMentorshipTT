@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QAI × Debrah Kobby FX — Mentorship Timetable</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --gold: #c9a84c;
+        --gold-light: #e8c97a;
+        --gold-dim: #8a6c2a;
+        --bg: #0a0a0a;
+        --bg2: #111111;
+        --bg3: #181818;
+        --surface: #1c1c1c;
+        --border: rgba(201, 168, 76, 0.15);
+        --border-strong: rgba(201, 168, 76, 0.35);
+        --text: #f0ede6;
+        --text-muted: #888880;
+        --text-dim: #444440;
+        --tue: #1a3a5c;
+        --tue-text: #6fb3f5;
+        --thu: #2a1a4a;
+        --thu-text: #b09ae8;
+        --sat: #1a3a1a;
+        --sat-text: #7ec87e;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "DM Sans", sans-serif;
+        font-weight: 300;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* Grid background */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(201, 168, 76, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(201, 168, 76, 0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .container {
+        position: relative;
+        z-index: 1;
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 0 24px 80px;
+      }
+
+      /* HERO */
+      .hero {
+        padding: 60px 0 48px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 48px;
+      }
+
+      .hero-eyebrow {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        color: var(--gold);
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .hero-eyebrow::after {
+        content: "";
+        flex: 1;
+        max-width: 80px;
+        height: 1px;
+        background: var(--gold-dim);
+      }
+
+      .hero-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(52px, 10vw, 88px);
+        line-height: 0.92;
+        letter-spacing: 0.01em;
+        color: var(--text);
+        margin-bottom: 8px;
+      }
+
+      .hero-title span {
+        color: var(--gold);
+      }
+
+      .hero-subtitle {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(28px, 5vw, 44px);
+        line-height: 1;
+        color: var(--text-muted);
+        letter-spacing: 0.02em;
+        margin-bottom: 28px;
+      }
+
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+
+      .meta-item {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .meta-label {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--text-dim);
+      }
+
+      .meta-value {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text);
+      }
+
+      /* LEGEND */
+      .legend {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 36px;
+        padding: 16px 20px;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+
+      .legend-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+
+      /* WEEK BLOCKS */
+      .week {
+        margin-bottom: 40px;
+        animation: fadeUp 0.5s ease both;
+      }
+
+      .week:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .week:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .week:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .week:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .week-header {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
+        margin-bottom: 14px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .week-number {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 42px;
+        line-height: 1;
+        color: var(--gold);
+        opacity: 0.4;
+        min-width: 52px;
+      }
+
+      .week-info {
+      }
+
+      .week-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 22px;
+        letter-spacing: 0.05em;
+        color: var(--text);
+      }
+
+      .week-dates {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        color: var(--text-dim);
+        letter-spacing: 0.08em;
+        margin-top: 2px;
+      }
+
+      /* SESSION CARDS */
+      .sessions {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .session {
+        display: grid;
+        grid-template-columns: 110px 1fr auto;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 18px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .session::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+      }
+
+      .session.tue::before {
+        background: var(--tue-text);
+      }
+      .session.thu::before {
+        background: var(--thu-text);
+      }
+      .session.sat::before {
+        background: var(--sat-text);
+      }
+
+      .session:hover {
+        border-color: var(--border-strong);
+        background: #202020;
+      }
+
+      .session-date {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .day-badge {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 3px 8px;
+        border-radius: 3px;
+        display: inline-block;
+        width: fit-content;
+      }
+
+      .session.tue .day-badge {
+        background: var(--tue);
+        color: var(--tue-text);
+      }
+      .session.thu .day-badge {
+        background: var(--thu);
+        color: var(--thu-text);
+      }
+      .session.sat .day-badge {
+        background: var(--sat);
+        color: var(--sat-text);
+      }
+
+      .date-text {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        color: var(--text-dim);
+        margin-top: 3px;
+        padding-left: 2px;
+      }
+
+      .session-body {
+      }
+
+      .session-num {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        color: var(--text-dim);
+        letter-spacing: 0.1em;
+        margin-bottom: 3px;
+      }
+
+      .session-title {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text);
+        line-height: 1.3;
+      }
+
+      .session-desc {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-top: 3px;
+      }
+
+      .session-duration {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        color: var(--text-dim);
+        white-space: nowrap;
+        text-align: right;
+      }
+
+      .zoom-tag {
+        font-size: 10px;
+        color: var(--gold-dim);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-top: 4px;
+      }
+
+      /* FOOTER */
+      .footer {
+        margin-top: 56px;
+        padding-top: 28px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: gap;
+      }
+
+      .footer-left {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 18px;
+        letter-spacing: 0.06em;
+        color: var(--text-dim);
+      }
+
+      .footer-left span {
+        color: var(--gold);
+      }
+
+      .footer-note {
+        font-size: 11px;
+        color: var(--text-dim);
+        font-family: "DM Mono", monospace;
+        letter-spacing: 0.06em;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 560px) {
+        .session {
+          grid-template-columns: 90px 1fr;
+        }
+        .session-duration {
+          display: none;
+        }
+        .hero-meta {
+          gap: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- HERO -->
+      <header class="hero">
+        <div class="hero-eyebrow">OpenAI Mentorship Program · 2025</div>
+        <div class="hero-title">QAI <span>×</span></div>
+        <div class="hero-subtitle">Debrah Kobby FX</div>
+        <div class="hero-meta">
+          <div class="meta-item">
+            <span class="meta-label">Duration</span>
+            <span class="meta-value">4 Weeks</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Total Sessions</span>
+            <span class="meta-value">12 Zoom Meetings</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Start Date</span>
+            <span class="meta-value">Jun 3, 2025</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Focus</span>
+            <span class="meta-value">Trading & Market Analysis</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- LEGEND -->
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-dot" style="background: #6fb3f5"></div>
+          Tuesday — 60 min
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background: #b09ae8"></div>
+          Thursday — 60 min
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background: #7ec87e"></div>
+          Saturday — 90–120 min (extended)
+        </div>
+      </div>
+
+      <!-- WEEKS -->
+      <main>
+        <!-- WEEK 1 -->
+        <section class="week">
+          <div class="week-header">
+            <div class="week-number">01</div>
+            <div class="week-info">
+              <div class="week-title">Foundation Week</div>
+              <div class="week-dates">Jun 3 – Jun 7, 2025</div>
+            </div>
+          </div>
+          <div class="sessions">
+            <div class="session tue">
+              <div class="session-date">
+                <span class="day-badge">Tuesday</span>
+                <span class="date-text">Jun 3</span>
+              </div>
+              <div class="session-body">
+                <div class="session-num">Session 01</div>
+                <div class="session-title">Market Structure Intro</div>
+                <div class="session-desc">
+                  Program overview, goals & tools setup
+                </div>
+              </div>
+              <div class="session-duration">
+                60 min<br /><span class="zoom-tag">Zoom</span>
+              </div>
+            </div>
+            <div class="session thu">
+              <div class="session-date">
+                <span class="day-badge">Thursday</span>
+                <span class="date-text">Jun 5</span>
+              </div>
+              <div class="session-body">
+                <div class="session-num">Session 02</div>
+                <div class="session-title">Price Action Basics</div>
+                <div class="session-desc">
+                  Candlesticks, support & resistance levels
+                </div>
+              </div>
+              <div class="session-duration">
+                60 min<br /><span class="zoom-tag">Zoom</span>
+              </div>
+            </div>
+            <div class="session sat">
+              <div class="session-date">
+                <span class="day-badge">Saturday</span>
+                <span class="date-text">Jun 7</span>
+              </div>
+              <div class="session-body">
+                <div class="session-num">Session 03</div>
+                <div class="session-title">Deep Dive & Live Chart Review</div>
+                <div class="session-desc">
+                  Extended session · setups walkthrough + Q&A
+                </div>
+              </div>
+              <div class="session-duration">
+                90–120 min<br /><span class="zoom-tag">Zoom</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- WEEK 2 -->
+        <section class="week">
+          <div class="week-header">
+            <div class="week-number">02</div>
+            <div class="week-info">
+              <div class="week-title">Strategy Week</div>
+              <div class="week-dates">Jun 10 – Jun 14, 2025</div>
+            </div>
+          </div>
+          <div class="sessions">
+            <div class="session tue">
+              <div class="session-date">
+                <span class="day-badge">Tuesday</span>
+                <span class="date-text">Jun 10</span>
+              </div>
+              <div class="session-body">
+                <div class="session-num">Session 04</div>
+                <div class="session-title">Trend Analysis</div>
+                <div class="session-desc">
+                  Market direction, highs & lows identification
+                </div>
+              </div>
+              <div class="session-duration">
+                60 min<br /><span class="zoom-tag">Zoom</span>
+              </div>
+            </div>
+            <div class="session thu">
+              <div class="session-date">
+                <span class="day-badge">Thursday</span>
+                <span class="date-text">Jun 12</span>
+              </div>
+              <div class="session-body">
+                <div class="session-num">Session 05</div>
+                <div class="session-title">Entry & Exit Strategies</div>
+                <div class="session-desc">
+                  Risk-reward ratio & stop loss placement
+                </div>
+              </div>
+              <div class="session-duration">
+                60 min<br /><span class="zoom-tag">Zoom</span>
+              </div>
+            </div>
+            <div class="session sat">
+              <div class="session-date">
+                <span class="day-badge">Saturday</span>
+                <span class="date-text">Jun 14</span>
+              </div>
+              <div class="session-body">
+                <div class="session-num">Session 06</div>
+                <div class="session-title">Breakdown & Trade Review</div>
+                <div class="session-desc">
+                  Extended session · real setups walkthrough
+                </div>
+              </div>
+              <div class="session-duration">
+                90–120 min<br /><span class="zoom-tag">Zoom</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- WEEK 3 -->
+        <section class="week">
+          <div class="week-header">
+            <div class="week-number">03</div>
+            <div class="week-info">
+              <div class="week-title">Psychology & Technicals</div>
+              <div class="week-dates">Jun 17 – Jun 21, 2025</div>
+            </div>
+          </div>
+          <div class="sessions">
+            <div class="session tue">
+              <div class="session-date">
+                <span class="day-badge">Tuesday</span>
+                <span class="date-text">Jun 17</span>
+              </div>
+              <div class="session-body">
+                <div class="session-num">Session 07</div>
+                <div class="session-title">Trading Psychology</div>
+                <div class="session-desc">
+                  Discipline, cognitive bias & emotional control
+                </div>
+              </div>
+              <div class="session-duration">
+                60 min<br /><span class="zoom-tag">Zoom</span>
+              </div>
+            </div>
+            <div class="session thu">
+              <div class="session-date">
+                <span class="day-badge">Thursday</span>
+                <span class="date-text">Jun 19</span>
+              </div>
+              <div class="session-body">
+                <div class="session-num">Session 08</div>
+                <div class="session-title">Technical Indicators</div>
+                <div class="session-desc">
+                  RSI, MACD & moving averages in practice
+                </div>
+              </div>
+              <div class="session-duration">
+                60 min<br /><span class="zoom-tag">Zoom</span>
+              </div>
+            </div>
+            <div class="session sat">
+              <div class="session-date">
+                <span class="day-badge">Saturday</span>
+                <span class="date-text">Jun 21</span>
+              </div>
+              <div class="session-body">
+                <div class="session-num">Session 09</div>
+                <div class="session-title">Live Market Analysis</div>
+                <div class="session-desc">
+                  Extended session · mentor-led trade breakdown
+                </div>
+              </div>
+              <div class="session-duration">
+                90–120 min<br /><span class="zoom-tag">Zoom</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- WEEK 4 -->
+        <section class="week">
+          <div class="week-header">
+            <div class="week-number">04</div>
+            <div class="week-info">
+              <div class="week-title">Execution & Wrap-Up</div>
+              <div class="week-dates">Jun 24 – Jun 28, 2025</div>
+            </div>
+          </div>
+          <div class="sessions">
+            <div class="session tue">
+              <div class="session-date">
+                <span class="day-badge">Tuesday</span>
+                <span class="date-text">Jun 24</span>
+              </div>
+              <div class="session-body">
+                <div class="session-num">Session 10</div>
+                <div class="session-title">Strategy Building</div>
+                <div class="session-desc">
+                  Developing your personal trading plan
+                </div>
+              </div>
+              <div class="session-duration">
+                60 min<br /><span class="zoom-tag">Zoom</span>
+              </div>
+            </div>
+            <div class="session thu">
+              <div class="session-date">
+                <span class="day-badge">Thursday</span>
+                <span class="date-text">Jun 26</span>
+              </div>
+              <div class="session-body">
+                <div class="session-num">Session 11</div>
+                <div class="session-title">Backtesting & Review</div>
+                <div class="session-desc">
+                  Testing setups against historical market data
+                </div>
+              </div>
+              <div class="session-duration">
+                60 min<br /><span class="zoom-tag">Zoom</span>
+              </div>
+            </div>
+            <div class="session sat">
+              <div class="session-date">
+                <span class="day-badge">Saturday</span>
+                <span class="date-text">Jun 28</span>
+              </div>
+              <div class="session-body">
+                <div class="session-num">Session 12</div>
+                <div class="session-title">Final Review & Next Steps</div>
+                <div class="session-desc">
+                  Extended session · wrap-up & goals going forward
+                </div>
+              </div>
+              <div class="session-duration">
+                90–120 min<br /><span class="zoom-tag">Zoom</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="footer-left">QAI <span>×</span> Debrah Kobby FX</div>
+        <div class="footer-note">Jun 3 – Jun 28, 2025</div>
+      </footer>
+    </div>
+  </body>
+</html>
