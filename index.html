@@ -62,7 +62,6 @@
         margin: 0 auto;
         padding: 0 24px 80px;
       }
-
       .page {
         display: none;
       }
@@ -70,7 +69,6 @@
         display: block;
       }
 
-      /* HERO */
       .hero {
         padding: 60px 0 48px;
         border-bottom: 1px solid var(--border);
@@ -136,7 +134,6 @@
         color: var(--text);
       }
 
-      /* NAV TABS */
       .nav-tabs {
         display: flex;
         gap: 0;
@@ -174,7 +171,6 @@
         border-bottom-color: var(--gold);
       }
 
-      /* LEGEND */
       .legend {
         display: flex;
         gap: 20px;
@@ -198,7 +194,6 @@
         border-radius: 50%;
       }
 
-      /* WEEKS */
       .week {
         margin-bottom: 40px;
         animation: fadeUp 0.5s ease both;
@@ -259,10 +254,11 @@
         flex-direction: column;
         gap: 8px;
       }
+
       .session {
         display: grid;
         grid-template-columns: 110px 1fr auto;
-        align-items: center;
+        align-items: start;
         gap: 16px;
         padding: 14px 18px;
         background: var(--surface);
@@ -348,6 +344,25 @@
         color: var(--text-muted);
         margin-top: 3px;
       }
+      .session-bullets {
+        margin-top: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .session-bullet {
+        font-size: 11px;
+        color: var(--text-dim);
+        padding-left: 12px;
+        position: relative;
+        line-height: 1.5;
+      }
+      .session-bullet::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: var(--gold-dim);
+      }
       .session-duration {
         font-family: "DM Mono", monospace;
         font-size: 11px;
@@ -363,7 +378,6 @@
         margin-top: 4px;
       }
 
-      /* FOOTER */
       .footer {
         margin-top: 56px;
         padding-top: 28px;
@@ -390,7 +404,6 @@
         letter-spacing: 0.06em;
       }
 
-      /* WHATSAPP FLOAT */
       .wa-float {
         position: fixed;
         bottom: 28px;
@@ -446,7 +459,6 @@
         fill: #fff;
       }
 
-      /* CONTACT SECTION (inside contact page) */
       .contact-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -515,7 +527,6 @@
         flex-shrink: 0;
       }
 
-      /* RESOURCES PAGE */
       .res-section {
         margin-bottom: 44px;
         animation: fadeUp 0.45s ease both;
@@ -570,8 +581,6 @@
         flex-direction: column;
         gap: 10px;
       }
-
-      /* Doc item */
       .doc-item {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -655,7 +664,6 @@
         color: var(--gold);
         border-color: rgba(201, 168, 76, 0.45);
       }
-
       .res-empty {
         padding: 24px 18px;
         background: var(--bg2);
@@ -676,26 +684,6 @@
         opacity: 0.6;
       }
 
-      /* HOW TO ADD DOCS notice */
-      .dev-notice {
-        margin-bottom: 28px;
-        padding: 14px 18px;
-        background: #131a10;
-        border: 1px solid rgba(126, 200, 126, 0.2);
-        border-radius: 6px;
-      }
-      .dev-notice p {
-        font-family: "DM Mono", monospace;
-        font-size: 11px;
-        color: #7ec87e;
-        letter-spacing: 0.06em;
-        line-height: 1.7;
-      }
-      .dev-notice strong {
-        color: #a8e6a8;
-      }
-
-      /* RULES PAGE */
       .rules-intro {
         font-size: 13px;
         color: var(--text-muted);
@@ -734,8 +722,6 @@
         min-width: 28px;
         padding-top: 1px;
       }
-      .rule-body {
-      }
       .rule-title {
         font-size: 13px;
         font-weight: 500;
@@ -759,7 +745,6 @@
         letter-spacing: 0.08em;
       }
 
-      /* MENTOR PAGE */
       .mentor-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -845,36 +830,6 @@
         color: var(--gold-dim);
       }
 
-      /* BACK BUTTON */
-      .back-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-family: "DM Mono", monospace;
-        font-size: 11px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--text-dim);
-        background: none;
-        border: 1px solid var(--border);
-        border-radius: 5px;
-        padding: 8px 16px;
-        cursor: pointer;
-        transition:
-          color 0.2s,
-          border-color 0.2s;
-        margin-top: 48px;
-        outline: none;
-      }
-      .back-btn:hover {
-        color: var(--gold);
-        border-color: rgba(201, 168, 76, 0.4);
-      }
-      .back-btn svg {
-        width: 12px;
-        height: 12px;
-      }
-
       @media (max-width: 560px) {
         .session {
           grid-template-columns: 90px 1fr;
@@ -890,7 +845,7 @@
   </head>
   <body>
     <div class="container">
-      <!-- ═══════════ PAGE 1 — TIMETABLE ═══════════ -->
+      <!-- ══ PAGE 1 — TIMETABLE ══ -->
       <div class="page active" id="page-timetable">
         <header class="hero">
           <div class="hero-eyebrow">FOREX Mentorship Program · 2026</div>
@@ -907,7 +862,7 @@
             </div>
             <div class="meta-item">
               <span class="meta-label">Start Date</span
-              ><span class="meta-value">Jun 3, 2025</span>
+              ><span class="meta-value">Jun 3, 2026</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">Focus</span
@@ -943,12 +898,13 @@
           </div>
         </div>
         <main>
+          <!-- WEEK 1 -->
           <section class="week">
             <div class="week-header">
               <div class="week-number">01</div>
               <div class="week-info">
                 <div class="week-title">Foundation Week</div>
-                <div class="week-dates">Jun 3 – Jun 7, 2025</div>
+                <div class="week-dates">Jun 3 – Jun 7, 2026</div>
               </div>
             </div>
             <div class="sessions">
@@ -961,7 +917,18 @@
                   <div class="session-num">Session 01</div>
                   <div class="session-title">Market Structure Intro</div>
                   <div class="session-desc">
-                    Program overview, goals & tools setup
+                    The foundation of everything — how price actually moves.
+                  </div>
+                  <div class="session-bullets">
+                    <div class="session-bullet">
+                      Higher Highs, Higher Lows, Lower Highs, Lower Lows defined
+                    </div>
+                    <div class="session-bullet">
+                      Uptrend vs downtrend vs consolidation
+                    </div>
+                    <div class="session-bullet">
+                      Break of Structure (BOS) and Change of Character (CHoCH)
+                    </div>
                   </div>
                 </div>
                 <div class="session-duration">
@@ -977,7 +944,19 @@
                   <div class="session-num">Session 02</div>
                   <div class="session-title">Price Action Basics</div>
                   <div class="session-desc">
-                    Candlesticks, support & resistance levels
+                    Candlesticks, support & resistance, and how institutions
+                    leave footprints.
+                  </div>
+                  <div class="session-bullets">
+                    <div class="session-bullet">
+                      Reading candlestick patterns and wicks
+                    </div>
+                    <div class="session-bullet">
+                      Identifying strong support and resistance zones
+                    </div>
+                    <div class="session-bullet">
+                      Confluence — when structure and S/R align
+                    </div>
                   </div>
                 </div>
                 <div class="session-duration">
@@ -993,7 +972,18 @@
                   <div class="session-num">Session 03</div>
                   <div class="session-title">Deep Dive & Live Chart Review</div>
                   <div class="session-desc">
-                    Extended session · setups walkthrough + Q&A
+                    Extended session — real chart walkthroughs and live Q&A.
+                  </div>
+                  <div class="session-bullets">
+                    <div class="session-bullet">
+                      Identifying structure across multiple live pairs
+                    </div>
+                    <div class="session-bullet">
+                      Common beginner mistakes and how to avoid them
+                    </div>
+                    <div class="session-bullet">
+                      Interactive Q&A — ask anything from Week 1
+                    </div>
                   </div>
                 </div>
                 <div class="session-duration">
@@ -1002,12 +992,14 @@
               </div>
             </div>
           </section>
+
+          <!-- WEEK 2 -->
           <section class="week">
             <div class="week-header">
               <div class="week-number">02</div>
               <div class="week-info">
                 <div class="week-title">Strategy Week</div>
-                <div class="week-dates">Jun 10 – Jun 14, 2025</div>
+                <div class="week-dates">Jun 10 – Jun 14, 2026</div>
               </div>
             </div>
             <div class="sessions">
@@ -1020,7 +1012,19 @@
                   <div class="session-num">Session 04</div>
                   <div class="session-title">Trend Analysis</div>
                   <div class="session-desc">
-                    Market direction, highs & lows identification
+                    How to identify market direction with confidence before
+                    every trade.
+                  </div>
+                  <div class="session-bullets">
+                    <div class="session-bullet">
+                      Multi-timeframe alignment — 4H direction, 15M entry
+                    </div>
+                    <div class="session-bullet">
+                      Drawing swing highs and lows correctly
+                    </div>
+                    <div class="session-bullet">
+                      Continuation vs reversal signals
+                    </div>
                   </div>
                 </div>
                 <div class="session-duration">
@@ -1036,7 +1040,18 @@
                   <div class="session-num">Session 05</div>
                   <div class="session-title">Entry & Exit Strategies</div>
                   <div class="session-desc">
-                    Risk-reward ratio & stop loss placement
+                    Risk-reward thinking and disciplined stop loss placement.
+                  </div>
+                  <div class="session-bullets">
+                    <div class="session-bullet">
+                      Minimum 1:2 RR — why it changes everything
+                    </div>
+                    <div class="session-bullet">
+                      Structure-based SL — never emotional SL
+                    </div>
+                    <div class="session-bullet">
+                      Taking profit at previous highs/lows and liquidity targets
+                    </div>
                   </div>
                 </div>
                 <div class="session-duration">
@@ -1052,7 +1067,19 @@
                   <div class="session-num">Session 06</div>
                   <div class="session-title">Breakdown & Trade Review</div>
                   <div class="session-desc">
-                    Extended session · real setups walkthrough
+                    Extended session — real setups from the week broken down
+                    live.
+                  </div>
+                  <div class="session-bullets">
+                    <div class="session-bullet">
+                      Mentor-led walkthrough of valid and invalid setups
+                    </div>
+                    <div class="session-bullet">
+                      Homework review — student chart analysis presented
+                    </div>
+                    <div class="session-bullet">
+                      Building a trade log habit from day one
+                    </div>
                   </div>
                 </div>
                 <div class="session-duration">
@@ -1061,12 +1088,14 @@
               </div>
             </div>
           </section>
+
+          <!-- WEEK 3 -->
           <section class="week">
             <div class="week-header">
               <div class="week-number">03</div>
               <div class="week-info">
                 <div class="week-title">Psychology & Technicals</div>
-                <div class="week-dates">Jun 17 – Jun 21, 2025</div>
+                <div class="week-dates">Jun 17 – Jun 21, 2026</div>
               </div>
             </div>
             <div class="sessions">
@@ -1079,7 +1108,19 @@
                   <div class="session-num">Session 07</div>
                   <div class="session-title">Trading Psychology</div>
                   <div class="session-desc">
-                    Discipline, cognitive bias & emotional control
+                    The part most traders skip — and why it decides everything.
+                  </div>
+                  <div class="session-bullets">
+                    <div class="session-bullet">
+                      Cognitive biases that destroy accounts — FOMO, revenge
+                      trading
+                    </div>
+                    <div class="session-bullet">
+                      Building emotional discipline and pre-session routines
+                    </div>
+                    <div class="session-bullet">
+                      How to handle losing streaks without breaking your rules
+                    </div>
                   </div>
                 </div>
                 <div class="session-duration">
@@ -1095,7 +1136,19 @@
                   <div class="session-num">Session 08</div>
                   <div class="session-title">Technical Indicators</div>
                   <div class="session-desc">
-                    RSI, MACD & moving averages in practice
+                    RSI, MACD and moving averages — as confirmation, not
+                    signals.
+                  </div>
+                  <div class="session-bullets">
+                    <div class="session-bullet">
+                      RSI divergence as a structural confirmation tool
+                    </div>
+                    <div class="session-bullet">
+                      Moving averages for trend bias — not entries
+                    </div>
+                    <div class="session-bullet">
+                      Why indicators follow price, not the other way around
+                    </div>
                   </div>
                 </div>
                 <div class="session-duration">
@@ -1111,7 +1164,20 @@
                   <div class="session-num">Session 09</div>
                   <div class="session-title">Live Market Analysis</div>
                   <div class="session-desc">
-                    Extended session · mentor-led trade breakdown
+                    Extended session — mentor-led breakdown of live market
+                    conditions.
+                  </div>
+                  <div class="session-bullets">
+                    <div class="session-bullet">
+                      Live analysis of EURUSD, GBPUSD, XAUUSD
+                    </div>
+                    <div class="session-bullet">
+                      Identifying setups in real time with no indicators
+                    </div>
+                    <div class="session-bullet">
+                      Student participation — call the trade before the mentor
+                      does
+                    </div>
                   </div>
                 </div>
                 <div class="session-duration">
@@ -1120,12 +1186,14 @@
               </div>
             </div>
           </section>
+
+          <!-- WEEK 4 -->
           <section class="week">
             <div class="week-header">
               <div class="week-number">04</div>
               <div class="week-info">
                 <div class="week-title">Execution & Wrap-Up</div>
-                <div class="week-dates">Jun 24 – Jun 28, 2025</div>
+                <div class="week-dates">Jun 24 – Jun 28, 2026</div>
               </div>
             </div>
             <div class="sessions">
@@ -1138,7 +1206,20 @@
                   <div class="session-num">Session 10</div>
                   <div class="session-title">Strategy Building</div>
                   <div class="session-desc">
-                    Developing your personal trading plan
+                    Create a complete personal trading plan you will actually
+                    follow.
+                  </div>
+                  <div class="session-bullets">
+                    <div class="session-bullet">
+                      Trading style — scalping vs day trading vs swing
+                    </div>
+                    <div class="session-bullet">
+                      Building strict entry conditions and a trade checklist
+                    </div>
+                    <div class="session-bullet">
+                      Risk rules: 1% per trade, max 3 trades/day, stop after 2
+                      losses
+                    </div>
                   </div>
                 </div>
                 <div class="session-duration">
@@ -1154,7 +1235,18 @@
                   <div class="session-num">Session 11</div>
                   <div class="session-title">Backtesting & Review</div>
                   <div class="session-desc">
-                    Testing setups against historical market data
+                    Test your strategy on historical data before risking a cent.
+                  </div>
+                  <div class="session-bullets">
+                    <div class="session-bullet">
+                      Replaying markets candle-by-candle in TradingView
+                    </div>
+                    <div class="session-bullet">
+                      Recording: pair, date, RR, win/loss, mistakes
+                    </div>
+                    <div class="session-bullet">
+                      Why 50% win rate with 1:3 RR beats 90% win rate at 1:1
+                    </div>
                   </div>
                 </div>
                 <div class="session-duration">
@@ -1170,7 +1262,21 @@
                   <div class="session-num">Session 12</div>
                   <div class="session-title">Final Review & Next Steps</div>
                   <div class="session-desc">
-                    Extended session · wrap-up & goals going forward
+                    Extended wrap-up — independent analysis, goals, and the road
+                    ahead.
+                  </div>
+                  <div class="session-bullets">
+                    <div class="session-bullet">
+                      Student presents: trading plan, checklist, risk model,
+                      best setups
+                    </div>
+                    <div class="session-bullet">
+                      Mentor assessment and honest feedback on progress
+                    </div>
+                    <div class="session-bullet">
+                      Goals: demo consistency, funded account prep, journaling
+                      habits
+                    </div>
                   </div>
                 </div>
                 <div class="session-duration">
@@ -1182,11 +1288,11 @@
         </main>
         <footer class="footer">
           <div class="footer-left">QAI <span>×</span> Debrah Kobby FX</div>
-          <div class="footer-note">Jun 3 – Jun 28, 2025</div>
+          <div class="footer-note">Jun 3 – Jun 28, 2026</div>
         </footer>
       </div>
 
-      <!-- ═══════════ PAGE 2 — RESOURCES ═══════════ -->
+      <!-- ══ PAGE 2 — RESOURCES ══ -->
       <div class="page" id="page-resources">
         <header class="hero">
           <div class="hero-eyebrow">FOREX Mentorship Program · 2026</div>
@@ -1203,7 +1309,7 @@
             </div>
             <div class="meta-item">
               <span class="meta-label">Start Date</span
-              ><span class="meta-value">Jun 3, 2025</span>
+              ><span class="meta-value">Jun 3, 2026</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">Focus</span
@@ -1225,20 +1331,6 @@
           <button class="nav-tab" onclick="showTab('contact')">Contact</button>
         </nav>
         <main>
-          <!-- HOW TO ADD DOCS -->
-          <div class="dev-notice">
-            <p>
-              <strong>How to add documents:</strong> Open this HTML file, find
-              the matching section below (PDFs, Word Docs, or Video Links) and
-              copy one of the existing
-              <code>&lt;div class="doc-item"&gt;</code> blocks. Update the
-              <strong>title</strong>, <strong>session tag</strong>, and set the
-              <code>href</code> on the open button to the relative path of your
-              file in the project folder — e.g.
-              <code>./docs/week1-notes.pdf</code>. Save and refresh.
-            </p>
-          </div>
-
           <!-- PDFs -->
           <div class="res-section">
             <div class="res-section-header">
@@ -1260,27 +1352,30 @@
                 </svg>
               </div>
               <div class="res-section-title">PDFs & Notes</div>
-              <div class="res-section-count" id="pdf-count">0 FILES</div>
+              <div class="res-section-count" id="pdf-count">1 FILE</div>
             </div>
             <div class="res-list" id="pdf-list">
-              <!-- ── ADD PDF ITEMS HERE ──
               <div class="doc-item">
                 <div class="doc-item-header">
                   <div class="doc-thumb pdf">📄</div>
                   <div class="doc-info">
-                    <div class="doc-session-tag">SESSION 01 · Jun 3</div>
-                    <div class="doc-title">Market Structure Notes</div>
-                    <div class="doc-path">./docs/session01-market-structure.pdf</div>
+                    <div class="doc-session-tag">
+                      FULL PROGRAM · All 12 Sessions
+                    </div>
+                    <div class="doc-title">
+                      QAI × Debrah Kobby FX — Complete Course Syllabus
+                    </div>
+                    <div class="doc-path">
+                      ./docs/QAI_Mentorship_Syllabus.pdf
+                    </div>
                   </div>
-                  <a class="doc-open" href="./docs/session01-market-structure.pdf" target="_blank">Open ↗</a>
+                  <a
+                    class="doc-open"
+                    href="./docs/QAI_Mentorship_Syllabus.pdf"
+                    download="QAI_Mentorship_Syllabus.pdf"
+                    >Open ↗</a
+                  >
                 </div>
-              </div>
-              ── END EXAMPLE ── -->
-            </div>
-            <div class="res-empty" id="pdf-empty">
-              <div class="res-empty-label">No PDFs added yet</div>
-              <div class="res-empty-sub">
-                Drop your file in the project folder, then add the path above
               </div>
             </div>
           </div>
@@ -1308,21 +1403,7 @@
               <div class="res-section-title">Word Documents</div>
               <div class="res-section-count" id="doc-count">0 FILES</div>
             </div>
-            <div class="res-list" id="doc-list">
-              <!-- ── ADD WORD DOC ITEMS HERE ──
-              <div class="doc-item">
-                <div class="doc-item-header">
-                  <div class="doc-thumb word">📝</div>
-                  <div class="doc-info">
-                    <div class="doc-session-tag">SESSION 10 · Jun 24</div>
-                    <div class="doc-title">Personal Trading Plan Template</div>
-                    <div class="doc-path">./docs/trading-plan-template.docx</div>
-                  </div>
-                  <a class="doc-open" href="./docs/trading-plan-template.docx" target="_blank">Open ↗</a>
-                </div>
-              </div>
-              ── END EXAMPLE ── -->
-            </div>
+            <div class="res-list" id="doc-list"></div>
             <div class="res-empty" id="doc-empty">
               <div class="res-empty-label">No documents added yet</div>
               <div class="res-empty-sub">
@@ -1350,21 +1431,7 @@
               <div class="res-section-title">Video Links</div>
               <div class="res-section-count" id="vid-count">0 LINKS</div>
             </div>
-            <div class="res-list" id="vid-list">
-              <!-- ── ADD VIDEO LINK ITEMS HERE ──
-              <div class="doc-item">
-                <div class="doc-item-header">
-                  <div class="doc-thumb vid">🎥</div>
-                  <div class="doc-info">
-                    <div class="doc-session-tag">SESSION 03 · Jun 7 — Recording</div>
-                    <div class="doc-title">Deep Dive & Live Chart Review — Replay</div>
-                    <div class="doc-path">https://zoom.us/rec/share/...</div>
-                  </div>
-                  <a class="doc-open" href="https://zoom.us/rec/share/..." target="_blank">Watch ↗</a>
-                </div>
-              </div>
-              ── END EXAMPLE ── -->
-            </div>
+            <div class="res-list" id="vid-list"></div>
             <div class="res-empty" id="vid-empty">
               <div class="res-empty-label">No video links added yet</div>
               <div class="res-empty-sub">
@@ -1375,11 +1442,11 @@
         </main>
         <footer class="footer" style="margin-top: 32px">
           <div class="footer-left">QAI <span>×</span> Debrah Kobby FX</div>
-          <div class="footer-note">Jun 3 – Jun 28, 2025</div>
+          <div class="footer-note">Jun 3 – Jun 28, 2026</div>
         </footer>
       </div>
 
-      <!-- ═══════════ PAGE 3 — RULES & EXPECTATIONS ═══════════ -->
+      <!-- ══ PAGE 3 — RULES ══ -->
       <div class="page" id="page-rules">
         <header class="hero">
           <div class="hero-eyebrow">FOREX Mentorship Program · 2026</div>
@@ -1396,7 +1463,7 @@
             </div>
             <div class="meta-item">
               <span class="meta-label">Start Date</span
-              ><span class="meta-value">Jun 3, 2025</span>
+              ><span class="meta-value">Jun 3, 2026</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">Focus</span
@@ -1420,11 +1487,10 @@
         <main>
           <div class="rules-intro">
             These are the ground rules and expectations for the QAI × Debrah
-            Kobby FX mentorship program. They exist to keep sessions productive,
+            Kobby FX mentorship. They exist to keep sessions productive,
             focused, and valuable for everyone involved. Please read through
             before your first session.
           </div>
-
           <div class="rules-group">
             <div class="rules-group-title">Attendance & Punctuality</div>
             <div class="rule-item">
@@ -1455,14 +1521,12 @@
               <div class="rule-body">
                 <div class="rule-title">Camera on</div>
                 <div class="rule-desc">
-                  We encourage cameras to be on during sessions. It keeps
-                  engagement high and helps the mentors gauge understanding in
-                  real time.
+                  Cameras are encouraged during sessions. It keeps engagement
+                  high and helps mentors gauge understanding in real time.
                 </div>
               </div>
             </div>
           </div>
-
           <div class="rules-group">
             <div class="rules-group-title">Conduct & Respect</div>
             <div class="rule-item">
@@ -1471,8 +1535,8 @@
                 <div class="rule-title">No talking over the mentor</div>
                 <div class="rule-desc">
                   Mute yourself when not speaking. Use the raise-hand feature or
-                  drop questions in the chat — the mentor will address them
-                  during Q&A segments.
+                  drop questions in chat — they will be addressed during Q&A
+                  segments.
                 </div>
               </div>
             </div>
@@ -1494,12 +1558,11 @@
                 <div class="rule-desc">
                   All materials, recordings, and strategies shared in this
                   program are private. Do not redistribute PDFs, recordings, or
-                  notes to people outside the group.
+                  notes outside the group.
                 </div>
               </div>
             </div>
           </div>
-
           <div class="rules-group">
             <div class="rules-group-title">Preparation & Engagement</div>
             <div class="rule-item">
@@ -1518,14 +1581,38 @@
               <div class="rule-body">
                 <div class="rule-title">Have your trading platform open</div>
                 <div class="rule-desc">
-                  During sessions you should have TradingView or your broker
-                  platform open so you can follow along with live chart analysis
-                  in real time.
+                  TradingView or your broker platform must be open during
+                  sessions so you can follow along with live chart analysis in
+                  real time.
                 </div>
               </div>
             </div>
             <div class="rule-item">
               <div class="rule-num">09</div>
+              <div class="rule-body">
+                <div class="rule-title">Practice between sessions</div>
+                <div class="rule-desc">
+                  Use a demo account every day. Consistency outside sessions
+                  matters more than anything that happens inside them.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="rules-group">
+            <div class="rules-group-title">Expectations</div>
+            <div class="rule-item">
+              <div class="rule-num">10</div>
+              <div class="rule-body">
+                <div class="rule-title">No live trading pressure</div>
+                <div class="rule-desc">
+                  You are not expected to trade live during this program. Focus
+                  on learning and demo trading. Risk real capital only when you
+                  are consistently profitable on demo.
+                </div>
+              </div>
+            </div>
+            <div class="rule-item">
+              <div class="rule-num">11</div>
               <div class="rule-body">
                 <div class="rule-title">Ask questions actively</div>
                 <div class="rule-desc">
@@ -1535,45 +1622,18 @@
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="rules-group">
-            <div class="rules-group-title">Expectations</div>
-            <div class="rule-item">
-              <div class="rule-num">10</div>
-              <div class="rule-body">
-                <div class="rule-title">Practice between sessions</div>
-                <div class="rule-desc">
-                  Watching sessions alone will not make you a trader. Use a demo
-                  account to practice the setups covered each week. Consistency
-                  outside sessions matters more than anything in here.
-                </div>
-              </div>
-            </div>
-            <div class="rule-item">
-              <div class="rule-num">11</div>
-              <div class="rule-body">
-                <div class="rule-title">No live trading pressure</div>
-                <div class="rule-desc">
-                  You are not expected to trade live during this program. Focus
-                  on learning and demo trading. Risk your real capital only when
-                  you are consistently profitable on demo.
-                </div>
-              </div>
-            </div>
             <div class="rule-item">
               <div class="rule-num">12</div>
               <div class="rule-body">
                 <div class="rule-title">Honest feedback goes both ways</div>
                 <div class="rule-desc">
-                  The mentors will give you honest assessments of your progress.
-                  You are also encouraged to give feedback on sessions so the
-                  program can keep improving.
+                  Mentors will give honest assessments of your progress. You are
+                  also encouraged to give feedback on sessions so the program
+                  can keep improving.
                 </div>
               </div>
             </div>
           </div>
-
           <div class="rules-edit-note">
             ✏ &nbsp; These rules will be updated by the mentors as the program
             develops. Check back before each week begins.
@@ -1581,11 +1641,11 @@
         </main>
         <footer class="footer" style="margin-top: 48px">
           <div class="footer-left">QAI <span>×</span> Debrah Kobby FX</div>
-          <div class="footer-note">Jun 3 – Jun 28, 2025</div>
+          <div class="footer-note">Jun 3 – Jun 28, 2026</div>
         </footer>
       </div>
 
-      <!-- ═══════════ PAGE 4 — MENTORS ═══════════ -->
+      <!-- ══ PAGE 4 — MENTORS ══ -->
       <div class="page" id="page-mentors">
         <header class="hero">
           <div class="hero-eyebrow">FOREX Mentorship Program · 2026</div>
@@ -1602,7 +1662,7 @@
             </div>
             <div class="meta-item">
               <span class="meta-label">Start Date</span
-              ><span class="meta-value">Jun 3, 2025</span>
+              ><span class="meta-value">Jun 3, 2026</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">Focus</span
@@ -1630,56 +1690,54 @@
             <div class="mentor-card">
               <div class="mentor-initials">PDB</div>
               <div class="mentor-name">Prince Debrah Bessah Sam</div>
-              <div class="mentor-role">Lead Mentor · QAI</div>
+              <div class="mentor-role">Mentor · D_K</div>
               <div class="mentor-bio">
-                A seasoned forex trader with years of live market experience
-                across major and minor pairs. Prince specialises in reading raw
-                price action and understanding institutional order flow —
-                teaching students to trade what the market is actually doing,
-                not what indicators claim it should be doing.
+                A seasoned forex trader with live market experience across major
+                and minor pairs. Prince specialises in reading raw price action
+                and understanding institutional order flow — teaching students
+                to trade what the market is actually doing, not what indicators
+                claim it should be doing.
               </div>
               <div class="mentor-skills">
-                <span class="skill-tag">SMC</span>
-                <span class="skill-tag">Order Flow</span>
-                <span class="skill-tag">Support & Resistance</span>
-                <span class="skill-tag">Zone Trading</span>
-                <span class="skill-tag">Fibonacci</span>
-                <span class="skill-tag">Price Action</span>
-                <span class="skill-tag">Risk Management</span>
+                <span class="skill-tag">SMC</span
+                ><span class="skill-tag">Order Flow</span
+                ><span class="skill-tag">Support & Resistance</span
+                ><span class="skill-tag">Zone Trading</span
+                ><span class="skill-tag">Fibonacci</span
+                ><span class="skill-tag">Price Action</span
+                ><span class="skill-tag">Risk Management</span>
               </div>
             </div>
-
             <div class="mentor-card">
-              <div class="mentor-initials">IAQ</div>
+              <div class="mentor-initials">QAI</div>
               <div class="mentor-name">Ivan Afari Quarm</div>
-              <div class="mentor-role">Co-Mentor · QAI</div>
+              <div class="mentor-role">Lead Mentor · QAI</div>
               <div class="mentor-bio">
                 Ivan brings a technical and systematic approach to forex
-                trading, focusing on building structured strategies that
-                students can replicate consistently. His strength lies in
-                breaking down complex market concepts into simple, executable
-                frameworks — from confluence setups to disciplined journaling
-                habits.
+                trading, focusing on building structured strategies students can
+                replicate consistently. His strength lies in breaking down
+                complex market concepts into simple, executable frameworks —
+                from confluence setups to disciplined journaling habits.
               </div>
               <div class="mentor-skills">
-                <span class="skill-tag">SMC</span>
-                <span class="skill-tag">Technical Analysis</span>
-                <span class="skill-tag">Confluence Trading</span>
-                <span class="skill-tag">Fibonacci</span>
-                <span class="skill-tag">MACD / RSI</span>
-                <span class="skill-tag">Trading Psychology</span>
-                <span class="skill-tag">Backtesting</span>
+                <span class="skill-tag">SMC</span
+                ><span class="skill-tag">Technical Analysis</span
+                ><span class="skill-tag">Confluence Trading</span
+                ><span class="skill-tag">Fibonacci</span
+                ><span class="skill-tag">MACD / RSI</span
+                ><span class="skill-tag">Trading Psychology</span
+                ><span class="skill-tag">Backtesting</span>
               </div>
             </div>
           </div>
         </main>
         <footer class="footer" style="margin-top: 32px">
           <div class="footer-left">QAI <span>×</span> Debrah Kobby FX</div>
-          <div class="footer-note">Jun 3 – Jun 28, 2025</div>
+          <div class="footer-note">Jun 3 – Jun 28, 2026</div>
         </footer>
       </div>
 
-      <!-- ═══════════ PAGE 5 — CONTACT ═══════════ -->
+      <!-- ══ PAGE 5 — CONTACT ══ -->
       <div class="page" id="page-contact">
         <header class="hero">
           <div class="hero-eyebrow">FOREX Mentorship Program · 2026</div>
@@ -1696,7 +1754,7 @@
             </div>
             <div class="meta-item">
               <span class="meta-label">Start Date</span
-              ><span class="meta-value">Jun 3, 2025</span>
+              ><span class="meta-value">Jun 3, 2026</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">Focus</span
@@ -1729,10 +1787,10 @@
               <div class="contact-card-num">+233 53 676 9784</div>
               <a
                 class="wa-link"
-                href="https://wa.me/233536769784"
+                href="https://wa.me/233277786772"
                 target="_blank"
               >
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 24 24">
                   <path
                     d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
                   />
@@ -1740,7 +1798,6 @@
                 Message on WhatsApp
               </a>
             </div>
-
             <div class="contact-card">
               <div class="contact-card-label">Mentor — Ivan Afari Quarm</div>
               <div class="contact-card-name">WhatsApp</div>
@@ -1750,7 +1807,7 @@
                 href="https://wa.me/233596392673"
                 target="_blank"
               >
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 24 24">
                   <path
                     d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
                   />
@@ -1762,22 +1819,22 @@
         </main>
         <footer class="footer" style="margin-top: 32px">
           <div class="footer-left">QAI <span>×</span> Debrah Kobby FX</div>
-          <div class="footer-note">Jun 3 – Jun 28, 2025</div>
+          <div class="footer-note">Jun 3 – Jun 28, 2026</div>
         </footer>
       </div>
     </div>
     <!-- /container -->
 
-    <!-- FLOATING WHATSAPP BUTTON -->
+    <!-- FLOATING WHATSAPP -->
     <div class="wa-float">
       <span class="wa-label">Chat with a mentor</span>
       <a
         class="wa-btn"
-        href="https://wa.me/233536769784"
+        href="https://wa.me/233277786772"
         target="_blank"
         title="WhatsApp"
       >
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 24 24">
           <path
             d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
           />
@@ -1796,24 +1853,6 @@
         );
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
-
-      // Auto-count doc items and hide empty states
-      function updateCounts() {
-        [
-          ["pdf", "pdf"],
-          ["doc", "doc"],
-          ["vid", "vid"],
-        ].forEach(([id, type]) => {
-          const list = document.getElementById(id + "-list");
-          const empty = document.getElementById(id + "-empty");
-          const count = document.getElementById(id + "-count");
-          const items = list ? list.querySelectorAll(".doc-item").length : 0;
-          if (count)
-            count.textContent = items + (type === "vid" ? " LINKS" : " FILES");
-          if (empty) empty.style.display = items > 0 ? "none" : "block";
-        });
-      }
-      updateCounts();
     </script>
   </body>
 </html>
