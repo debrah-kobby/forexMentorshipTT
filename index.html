@@ -69,6 +69,70 @@
         display: block;
       }
 
+      /* FLYER PAGE — special full-screen iframe layout */
+      .page.flyer-page {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        background: #050a0f;
+      }
+      .page.flyer-page.active {
+        display: flex;
+        flex-direction: column;
+      }
+      .flyer-topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background: #07111a;
+        border-bottom: 1px solid rgba(0, 220, 120, 0.12);
+        flex-shrink: 0;
+        z-index: 10;
+      }
+      .flyer-topbar-label {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #00dc78;
+        opacity: 0.7;
+      }
+      .flyer-back-btn {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #00dc78;
+        background: rgba(0, 220, 120, 0.08);
+        border: 1px solid rgba(0, 220, 120, 0.25);
+        border-radius: 4px;
+        padding: 6px 14px;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+      }
+      .flyer-back-btn:hover {
+        background: rgba(0, 220, 120, 0.15);
+        border-color: rgba(0, 220, 120, 0.5);
+      }
+      .flyer-iframe-wrap {
+        flex: 1;
+        overflow: auto;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 24px 16px;
+      }
+      .flyer-iframe-wrap iframe {
+        width: 460px;
+        height: 900px;
+        border: none;
+        flex-shrink: 0;
+      }
+
       .hero {
         padding: 60px 0 48px;
         border-bottom: 1px solid var(--border);
@@ -169,6 +233,19 @@
       .nav-tab.active {
         color: var(--gold);
         border-bottom-color: var(--gold);
+      }
+      /* Flyer tab gets a special accent */
+      .nav-tab.flyer-tab {
+        color: #00dc78;
+        opacity: 0.5;
+      }
+      .nav-tab.flyer-tab:hover {
+        opacity: 0.8;
+      }
+      .nav-tab.flyer-tab.active {
+        color: #00dc78;
+        border-bottom-color: #00dc78;
+        opacity: 1;
       }
 
       .legend {
@@ -882,6 +959,9 @@
           </button>
           <button class="nav-tab" onclick="showTab('mentors')">Mentors</button>
           <button class="nav-tab" onclick="showTab('contact')">Contact</button>
+          <button class="nav-tab flyer-tab" onclick="showTab('flyer')">
+            ↗ Flyer
+          </button>
         </nav>
         <div class="legend">
           <div class="legend-item">
@@ -992,7 +1072,6 @@
               </div>
             </div>
           </section>
-
           <!-- WEEK 2 -->
           <section class="week">
             <div class="week-header">
@@ -1088,7 +1167,6 @@
               </div>
             </div>
           </section>
-
           <!-- WEEK 3 -->
           <section class="week">
             <div class="week-header">
@@ -1186,7 +1264,6 @@
               </div>
             </div>
           </section>
-
           <!-- WEEK 4 -->
           <section class="week">
             <div class="week-header">
@@ -1329,9 +1406,11 @@
           </button>
           <button class="nav-tab" onclick="showTab('mentors')">Mentors</button>
           <button class="nav-tab" onclick="showTab('contact')">Contact</button>
+          <button class="nav-tab flyer-tab" onclick="showTab('flyer')">
+            ↗ Flyer
+          </button>
         </nav>
         <main>
-          <!-- PDFs -->
           <div class="res-section">
             <div class="res-section-header">
               <div class="res-icon">
@@ -1379,8 +1458,6 @@
               </div>
             </div>
           </div>
-
-          <!-- WORD DOCS -->
           <div class="res-section">
             <div class="res-section-header">
               <div class="res-icon">
@@ -1411,8 +1488,6 @@
               </div>
             </div>
           </div>
-
-          <!-- VIDEO LINKS -->
           <div class="res-section">
             <div class="res-section-header">
               <div class="res-icon">
@@ -1483,6 +1558,9 @@
           </button>
           <button class="nav-tab" onclick="showTab('mentors')">Mentors</button>
           <button class="nav-tab" onclick="showTab('contact')">Contact</button>
+          <button class="nav-tab flyer-tab" onclick="showTab('flyer')">
+            ↗ Flyer
+          </button>
         </nav>
         <main>
           <div class="rules-intro">
@@ -1684,6 +1762,9 @@
             Mentors
           </button>
           <button class="nav-tab" onclick="showTab('contact')">Contact</button>
+          <button class="nav-tab flyer-tab" onclick="showTab('flyer')">
+            ↗ Flyer
+          </button>
         </nav>
         <main>
           <div class="mentor-grid">
@@ -1776,6 +1857,9 @@
           <button class="nav-tab active" onclick="showTab('contact')">
             Contact
           </button>
+          <button class="nav-tab flyer-tab" onclick="showTab('flyer')">
+            ↗ Flyer
+          </button>
         </nav>
         <main>
           <div class="contact-grid">
@@ -1825,8 +1909,21 @@
     </div>
     <!-- /container -->
 
-    <!-- FLOATING WHATSAPP -->
-    <div class="wa-float">
+    <!-- ══ PAGE 6 — FLYER (fullscreen, outside container) ══ -->
+    <div class="page flyer-page" id="page-flyer">
+      <div class="flyer-topbar">
+        <span class="flyer-topbar-label">↗ Flyer — QAI × Debrah Kobby FX</span>
+        <button class="flyer-back-btn" onclick="showTab('timetable')">
+          ← Back to Timetable
+        </button>
+      </div>
+      <div class="flyer-iframe-wrap">
+        <iframe src="flyer.html" title="QAI × Debrah Kobby FX Flyer"></iframe>
+      </div>
+    </div>
+
+    <!-- FLOATING WHATSAPP (hidden on flyer page) -->
+    <div class="wa-float" id="wa-float">
       <span class="wa-label">Chat with a mentor</span>
       <a
         class="wa-btn"
@@ -1844,14 +1941,22 @@
 
     <script>
       function showTab(tab) {
-        ["timetable", "resources", "rules", "mentors", "contact"].forEach(
-          (t) => {
-            document
-              .getElementById("page-" + t)
-              .classList.toggle("active", t === tab);
-          },
-        );
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        [
+          "timetable",
+          "resources",
+          "rules",
+          "mentors",
+          "contact",
+          "flyer",
+        ].forEach((t) => {
+          document
+            .getElementById("page-" + t)
+            .classList.toggle("active", t === tab);
+        });
+        // Hide WA float button on flyer page
+        document.getElementById("wa-float").style.display =
+          tab === "flyer" ? "none" : "flex";
+        if (tab !== "flyer") window.scrollTo({ top: 0, behavior: "smooth" });
       }
     </script>
   </body>

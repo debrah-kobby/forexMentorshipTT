@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QAI × Debrah Kobby FX — June Mentorship</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      @media print {
+        *,
+        -webkit-any-link {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          color-adjust: exact !important;
+        }
+        html,
+        body {
+          height: auto;
+          overflow: visible;
+          background: #050a0f !important;
+        }
+        .flyer {
+          height: auto !important;
+          min-height: 100vh;
+          page-break-inside: avoid;
+        }
+        @page {
+          margin: 0;
+          size: 460px 900px;
+        }
+      }
+      body {
+        background: #050a0f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: "Rajdhani", sans-serif;
+      }
+      .flyer {
+        width: 460px;
+        height: 100vh;
+        background: #07111a;
+        border: 1px solid #1a3040;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .flyer::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(0, 200, 120, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 200, 120, 0.03) 1px, transparent 1px);
+        background-size: 32px 32px;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .flyer::after {
+        content: "";
+        position: absolute;
+        top: -40px;
+        right: -40px;
+        width: 180px;
+        height: 180px;
+        border: 1px solid rgba(0, 220, 120, 0.08);
+        transform: rotate(45deg);
+        pointer-events: none;
+        z-index: 0;
+      }
+      .top-bar {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 18px;
+        border-bottom: 1px solid #0e2030;
+        background: linear-gradient(90deg, #050e18 0%, #071520 100%);
+        flex-shrink: 0;
+      }
+      .brand-tag {
+        font-family: "Space Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.2em;
+        color: #00dc78;
+        text-transform: uppercase;
+      }
+      .month-tag {
+        font-family: "Space Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.15em;
+        color: #3a6070;
+      }
+      .hero {
+        position: relative;
+        z-index: 2;
+        padding: 14px 22px 10px;
+        flex-shrink: 0;
+      }
+      .discipline-line {
+        font-family: "Space Mono", monospace;
+        font-size: 8px;
+        letter-spacing: 0.3em;
+        color: #1e4a5a;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      .title-block {
+        margin-bottom: 4px;
+      }
+      .title-qai {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 56px;
+        line-height: 0.88;
+        color: #00dc78;
+        letter-spacing: 0.02em;
+        display: block;
+      }
+      .title-x {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 28px;
+        line-height: 1;
+        color: #1e6a50;
+        letter-spacing: 0.04em;
+        display: block;
+        margin: -2px 0;
+      }
+      .title-dk {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 38px;
+        line-height: 0.9;
+        color: #e8f4ec;
+        letter-spacing: 0.03em;
+        display: block;
+      }
+      .subtitle {
+        margin-top: 8px;
+        font-size: 11px;
+        font-weight: 500;
+        color: #4a8070;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        line-height: 1.4;
+      }
+      .price-badge {
+        position: absolute;
+        top: 14px;
+        right: 18px;
+        text-align: right;
+        z-index: 3;
+      }
+      .price-was {
+        font-family: "Space Mono", monospace;
+        font-size: 10px;
+        color: #1e4a5a;
+        text-decoration: line-through;
+        letter-spacing: 0.05em;
+      }
+      .price-now {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 40px;
+        line-height: 1;
+        color: #00dc78;
+      }
+      .price-label {
+        font-family: "Space Mono", monospace;
+        font-size: 8px;
+        color: #00dc78;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        opacity: 0.7;
+      }
+
+      /* CHARTS SECTION — with CTA badge top-right */
+      .charts-section {
+        position: relative;
+        z-index: 2;
+        padding: 0 18px 14px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 0;
+        height: 160px;
+        flex-shrink: 0;
+      }
+      .chart-wrap {
+        position: relative;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+        border: 1px solid #143040;
+      }
+      .chart-label {
+        position: absolute;
+        top: 4px;
+        left: 6px;
+        font-family: "Space Mono", monospace;
+        font-size: 7px;
+        letter-spacing: 0.1em;
+        padding: 2px 5px;
+        z-index: 5;
+        text-transform: uppercase;
+      }
+      .chart-before {
+        width: 150px;
+        height: 100px;
+        transform: rotate(-4deg) translateY(16px);
+        z-index: 2;
+        margin-right: -16px;
+      }
+      .chart-before img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .chart-before .chart-label {
+        background: #0a1f2a;
+        color: #3a8070;
+      }
+      .chart-after {
+        width: 185px;
+        height: 126px;
+        transform: rotate(3deg) translateY(0px);
+        z-index: 3;
+        margin-left: -8px;
+      }
+      .chart-after img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .chart-after .chart-label {
+        background: #001f14;
+        color: #00dc78;
+      }
+      .charts-caption {
+        position: absolute;
+        bottom: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Space Mono", monospace;
+        font-size: 7px;
+        letter-spacing: 0.15em;
+        color: #1e4a5a;
+        white-space: nowrap;
+        text-transform: uppercase;
+      }
+
+      /* CTA badge — top right of charts area */
+      .cta-badge {
+        position: absolute;
+        top: 4px;
+        right: 18px;
+        z-index: 10;
+        text-align: right;
+      }
+      .cta-badge-label {
+        font-family: "Space Mono", monospace;
+        font-size: 7px;
+        letter-spacing: 0.15em;
+        color: #1e4a5a;
+        text-transform: uppercase;
+        margin-top: -3rem;
+      }
+      .cta-badge-wa {
+        font-family: "Space Mono", monospace;
+        font-size: 9px;
+        color: #00dc78;
+        letter-spacing: 0.06em;
+        opacity: 0.9;
+        display: block;
+      }
+
+      .divider {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 18px;
+        margin-bottom: 10px;
+        flex-shrink: 0;
+      }
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #0e2a30, transparent);
+      }
+      .divider span {
+        font-family: "Space Mono", monospace;
+        font-size: 8px;
+        letter-spacing: 0.2em;
+        color: #00dc78;
+        opacity: 0.5;
+      }
+      .curriculum {
+        position: relative;
+        z-index: 2;
+        padding: 0 18px 10px;
+        flex-shrink: 0;
+      }
+      .curriculum-title {
+        font-family: "Space Mono", monospace;
+        font-size: 8px;
+        letter-spacing: 0.25em;
+        color: #00dc78;
+        opacity: 0.6;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      .curriculum-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px 16px;
+      }
+      .curriculum-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+        font-size: 11px;
+        font-weight: 500;
+        color: #8ab0a0;
+        line-height: 1.3;
+        letter-spacing: 0.02em;
+      }
+      .curriculum-item::before {
+        content: "—";
+        color: #00dc78;
+        font-family: "Space Mono", monospace;
+        font-size: 9px;
+        flex-shrink: 0;
+        margin-top: 1px;
+        opacity: 0.6;
+      }
+      .details-strip {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        gap: 0;
+        border-top: 1px solid #0e2030;
+        border-bottom: 1px solid #0e2030;
+        flex-shrink: 0;
+      }
+      .detail-block {
+        flex: 1;
+        padding: 8px;
+        border-right: 1px solid #0e2030;
+        text-align: center;
+      }
+      .detail-block:last-child {
+        border-right: none;
+      }
+      .detail-label {
+        font-family: "Space Mono", monospace;
+        font-size: 7px;
+        letter-spacing: 0.12em;
+        color: #1e4a5a;
+        text-transform: uppercase;
+        margin-bottom: 3px;
+      }
+      .detail-value {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 12px;
+        color: #d0e8dc;
+        letter-spacing: 0.05em;
+        line-height: 1.2;
+      }
+      .mentors-section {
+        position: relative;
+        z-index: 2;
+        padding: 10px 18px 10px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+        flex-shrink: 0;
+        border-bottom: 1px solid #0e2030;
+      }
+      .mentors-line {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .mentors-tag {
+        font-family: "Space Mono", monospace;
+        font-size: 7px;
+        letter-spacing: 0.2em;
+        color: #1e4a5a;
+        text-transform: uppercase;
+      }
+      .mentors-names {
+        font-size: 11px;
+        font-weight: 600;
+        color: #8ab8a0;
+        letter-spacing: 0.05em;
+      }
+      .socials {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 3px;
+      }
+      .social-row {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .social-platform {
+        font-family: "Space Mono", monospace;
+        font-size: 6px;
+        letter-spacing: 0.1em;
+        color: #1e4a5a;
+        text-transform: uppercase;
+        width: 46px;
+        text-align: right;
+      }
+      .social-handle {
+        font-family: "Space Mono", monospace;
+        font-size: 8px;
+        letter-spacing: 0.08em;
+        color: #00dc78;
+        opacity: 0.8;
+      }
+      .bottom-bar {
+        position: relative;
+        z-index: 2;
+        background: #00dc78;
+        padding: 8px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        flex-shrink: 0;
+        margin-top: auto;
+      }
+      .bottom-bar-text {
+        font-family: "Space Mono", monospace;
+        font-size: 8px;
+        letter-spacing: 0.18em;
+        color: #021a0e;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+      .bottom-bar-dot {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: #021a0e;
+        opacity: 0.4;
+        flex-shrink: 0;
+      }
+      .corner-tl,
+      .corner-br {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        z-index: 10;
+      }
+      .corner-tl {
+        top: 6px;
+        left: 6px;
+        border-top: 1px solid #00dc78;
+        border-left: 1px solid #00dc78;
+        opacity: 0.4;
+      }
+      .corner-br {
+        bottom: 42px;
+        right: 6px;
+        border-bottom: 1px solid #00dc78;
+        border-right: 1px solid #00dc78;
+        opacity: 0.4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flyer">
+      <div class="corner-tl"></div>
+      <div class="corner-br"></div>
+
+      <div class="top-bar">
+        <span class="brand-tag">QAI × Debrah Kobby FX</span>
+        <span class="month-tag">JUNE 2026 · COHORT 01</span>
+      </div>
+
+      <div class="hero">
+        <p class="discipline-line">DISCIPLINE · FOCUS · CONSISTENCY</p>
+        <div class="title-block">
+          <span class="title-qai">QAI</span>
+          <span class="title-x">×</span>
+          <span class="title-dk">DEBRAH KOBBY</span>
+        </div>
+        <p class="subtitle">
+          Advanced Forex Mentorship<br />Becoming Consistently Profitable
+        </p>
+        <div class="price-badge">
+          <div class="price-was">Was $80</div>
+          <div class="price-now">$40</div>
+          <div class="price-label">Access Fee</div>
+        </div>
+      </div>
+
+      <div class="charts-section">
+        <div class="chart-wrap chart-before">
+          <span class="chart-label">Before</span>
+          <img
+            src="WhatsApp Image 2026-05-31 at 9.05.32 AM.jpeg"
+            alt="Before — GBPUSD setup"
+          />
+        </div>
+        <div class="chart-wrap chart-after">
+          <span class="chart-label">After →</span>
+          <img
+            src="WhatsApp Image 2026-05-31 at 9.05.33 AM.jpeg"
+            alt="After — trade result"
+          />
+        </div>
+        <!-- CTA top-right of charts -->
+        <div class="cta-badge">
+          <div class="cta-badge-label">Chat on WhatsApp to Sign Up</div>
+          <span class="cta-badge-wa">0277 786 772</span>
+          <span class="cta-badge-wa">0596 392 673</span>
+        </div>
+        <span class="charts-caption"
+          >Real setups · Real results · No indicators</span
+        >
+      </div>
+
+      <div class="divider"><span>WHAT YOU WILL LEARN</span></div>
+
+      <div class="curriculum">
+        <p class="curriculum-title">Program Curriculum</p>
+        <div class="curriculum-grid">
+          <div class="curriculum-item">Market Structure &amp; Trend</div>
+          <div class="curriculum-item">Prop Challenge Guidance</div>
+          <div class="curriculum-item">Premium &amp; Discount Zones</div>
+          <div class="curriculum-item">Live Chart Walkthroughs</div>
+          <div class="curriculum-item">POI &amp; Order Block Selection</div>
+          <div class="curriculum-item">Trading Psychology &amp; Emotions</div>
+          <div class="curriculum-item">Demand &amp; Supply · Liquidity</div>
+          <div class="curriculum-item">In-depth Risk Management</div>
+          <div class="curriculum-item">SMC Entry Models</div>
+          <div class="curriculum-item">Telegram Community Access</div>
+        </div>
+      </div>
+
+      <div class="details-strip">
+        <div class="detail-block">
+          <div class="detail-label">Duration</div>
+          <div class="detail-value">4 Weeks</div>
+        </div>
+        <div class="detail-block">
+          <div class="detail-label">Sessions</div>
+          <div class="detail-value">Zoom · In-Person<br />Voice &amp; Chat</div>
+        </div>
+        <div class="detail-block">
+          <div class="detail-label">Starts</div>
+          <div class="detail-value">June</div>
+        </div>
+        <div class="detail-block">
+          <div class="detail-label">Platform</div>
+          <div class="detail-value">TradingView<br />Telegram · MT5</div>
+        </div>
+        <div class="detail-block">
+          <div class="detail-label">Slots</div>
+          <div class="detail-value">Still Open</div>
+        </div>
+      </div>
+
+      <div class="mentors-section">
+        <div class="mentors-line">
+          <span class="mentors-tag">Your Mentors</span>
+          <span class="mentors-names">Ivan Afari Quarm &amp; Prince D.K.</span>
+        </div>
+        <div class="socials">
+          <div class="social-row">
+            <span class="social-platform">TikTok</span>
+            <span class="social-handle">@debrah_kobby8</span>
+          </div>
+          <div class="social-row">
+            <span class="social-platform">Instagram</span>
+            <span class="social-handle">@debrah_kobby</span>
+          </div>
+          <div class="social-row">
+            <span class="social-platform">Telegram</span>
+            <span class="social-handle">Forex Forum</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-bar">
+        <span class="bottom-bar-text">Slots Still Open</span>
+        <div class="bottom-bar-dot"></div>
+        <span class="bottom-bar-text">Register Now</span>
+        <div class="bottom-bar-dot"></div>
+        <span class="bottom-bar-text">Chat on WhatsApp</span>
+      </div>
+    </div>
+  </body>
+</html>
